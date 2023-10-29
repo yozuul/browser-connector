@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    ".history": true,
+    ".vscode": true,
+    "dist": true,
+    "node_modules": true,
+    "test": true,
+    ".prettierrc": true,
+    "package-lock.json": true,
+    "README.md": true,
+    "tsconfig.build.json": true,
+    "src\\app.controller.spec.ts": true,
+    "src\\browser\\browser.controller.spec.ts": true,
+    "src\\browser\\browser.service.spec.ts": true,
+    "src\\browsers\\browsers.controller.spec.ts": true,
+    "src\\browsers\\browsers.service.spec.ts": true
+  }
+}
