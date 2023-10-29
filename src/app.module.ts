@@ -8,6 +8,7 @@ import { ProjectsModule } from './projects/projects.module'
 import { BrowsersModule } from './browsers/browsers.module'
 import { TabsModule } from './tabs/tabs.module'
 import { ProxyModule } from './proxy/proxy.module';
+import { SeederModule } from './seeder/seeder.module';
 
 @Module({
    imports: [
@@ -29,7 +30,7 @@ import { ProxyModule } from './proxy/proxy.module';
       ConfigModule.forRoot({
          isGlobal: true,
       }),
-      BrowsersModule, TabsModule, ProjectsModule, ProxyModule
+      BrowsersModule, TabsModule, ProjectsModule, ProxyModule, SeederModule
    ],
    controllers: [AppController],
    providers: [AppService],

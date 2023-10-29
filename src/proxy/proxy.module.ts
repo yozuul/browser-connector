@@ -1,9 +1,16 @@
-import { Module } from '@nestjs/common';
-import { ProxyController } from './proxy.controller';
-import { ProxyService } from './proxy.service';
+import { Module } from '@nestjs/common'
+import { SequelizeModule } from '@nestjs/sequelize'
+
+import { ProxyController } from './proxy.controller'
+import { ProxyService } from './proxy.service'
+
+import { Proxy } from './models/proxy.model'
 
 @Module({
-  controllers: [ProxyController],
-  providers: [ProxyService]
+   imports: [
+      SequelizeModule.forFeature([Proxy]),
+   ],
+   controllers: [ProxyController],
+   providers: [ProxyService]
 })
 export class ProxyModule {}

@@ -12,7 +12,7 @@ import { BrowserMockData, Browsers, BrowsersTypes } from './models'
          Browsers, BrowsersTypes
       ]),
    ],
-  controllers: [BrowsersController],
-  providers: [BrowsersService, BrowserMockData]
+   controllers: [BrowsersController],
+   providers: [BrowsersService, BrowserMockData]
 })
 export class BrowsersModule {}
