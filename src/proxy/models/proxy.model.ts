@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto'
 import { Table, Column, Model, DataType, ForeignKey, HasMany } from 'sequelize-typescript'
 
 import { Browsers } from 'src/browsers/models/browsers.model';
-import { ProxyCreationAttr } from './interfaces';
+import { ProxyCreationAttr } from '../proxy.interface';
 
 const { INTEGER, STRING, BOOLEAN } = DataType
 
@@ -16,6 +16,10 @@ export class Proxy extends Model<Proxy, ProxyCreationAttr> {
    @Column({
       type: STRING, defaultValue: null
    }) name: string;
+
+   @Column({
+      type: STRING, defaultValue: 'ru'
+   }) country: string;
 
    @Column({
       type: STRING, defaultValue: 'http'
@@ -36,11 +40,6 @@ export class Proxy extends Model<Proxy, ProxyCreationAttr> {
    @Column({
       type: STRING, defaultValue: null
    }) password: string;
-
-   @ForeignKey(() => Browsers)
-   @Column({
-      type: STRING, allowNull: false
-   }) browserId: string;
 
    @HasMany(() => Browsers, 'proxyId')
    browsers: Browsers[];

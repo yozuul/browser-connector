@@ -2,12 +2,11 @@ import { randomUUID } from 'node:crypto'
 import {
    Table, Column, Model, DataType, ForeignKey, BelongsTo, HasMany, HasOne
 } from 'sequelize-typescript'
-import { Projects } from 'src/projects/models/projects.model'
 import { BrowsersTypes } from './browsers-types.model'
 import { Tabs } from 'src/tabs/models/tabs.model'
 import { Proxy } from 'src/proxy/models/proxy.model'
 
-const { INTEGER, STRING } = DataType
+const { INTEGER, STRING, BOOLEAN } = DataType
 
 @Table({ tableName: 'browsers' })
 export class Browsers extends Model<Browsers> {
@@ -15,6 +14,10 @@ export class Browsers extends Model<Browsers> {
       type: STRING,
       unique: true, defaultValue: randomUUID, primaryKey: true
    }) id: string
+
+   @Column({
+      type: STRING, defaultValue: null
+   }) serviceName: string
 
    @ForeignKey(() => BrowsersTypes)
    @Column({
@@ -32,13 +35,9 @@ export class Browsers extends Model<Browsers> {
       type: INTEGER, defaultValue: null
    }) debuggingPort: number
 
-   @ForeignKey(() => Projects)
    @Column({
-      type: STRING, allowNull: false
-   }) projectId: string
-
-   @BelongsTo(() => Projects, 'projectId')
-   projects: Projects
+      type: BOOLEAN, defaultValue: false
+   }) autostart: boolean
 
    @HasMany(() => Tabs, 'browserId')
    tabs: Tabs[]

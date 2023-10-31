@@ -4,7 +4,7 @@ import { SequelizeModule } from '@nestjs/sequelize'
 import { BrowsersController } from './browsers.controller'
 import { BrowsersService } from './browsers.service'
 
-import { BrowserMockData, Browsers, BrowsersTypes } from './models'
+import { Browsers, BrowsersTypes } from './models'
 
 @Module({
    imports: [
@@ -13,6 +13,6 @@ import { BrowserMockData, Browsers, BrowsersTypes } from './models'
       ]),
    ],
    controllers: [BrowsersController],
-   providers: [BrowsersService, BrowserMockData]
+   providers: [BrowsersService]
 })
 export class BrowsersModule {}

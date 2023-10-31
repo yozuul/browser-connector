@@ -4,7 +4,6 @@ import { SequelizeModule } from '@nestjs/sequelize'
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { ProjectsModule } from './projects/projects.module'
 import { BrowsersModule } from './browsers/browsers.module'
 import { TabsModule } from './tabs/tabs.module'
 import { ProxyModule } from './proxy/proxy.module';
@@ -30,7 +29,7 @@ import { SeederModule } from './seeder/seeder.module';
       ConfigModule.forRoot({
          isGlobal: true,
       }),
-      BrowsersModule, TabsModule, ProjectsModule, ProxyModule, SeederModule
+      SeederModule, BrowsersModule, TabsModule, ProxyModule
    ],
    controllers: [AppController],
    providers: [AppService],

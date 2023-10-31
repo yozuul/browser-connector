@@ -1,6 +1,6 @@
 import { Table, Column, Model, DataType, HasMany, } from 'sequelize-typescript'
 import { Browsers } from './browsers.model'
-import { BrowsersTypesCreationAttr } from './interfaces'
+import { BrowsersTypesCreationAttr } from '../browser.interface'
 
 const { INTEGER, STRING } = DataType
 
